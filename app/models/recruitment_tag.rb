@@ -1,0 +1,2 @@
+class RecruitmentTag < ApplicationRecord
+end
