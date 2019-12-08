@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Myapp</title>
+    <title>Ball Park</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -14,7 +14,6 @@
       <!--Let browser know website is optimized for mobile-->
       <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   </head>
-
   <body>
     <nav>
       <div class="nav-wrapper teal darken-4">
@@ -24,13 +23,13 @@
               <li><%= link_to "投稿一覧", recruitments_path %></li>
             </ul>
             <ul id="nav-mobile" class="right hide-on-med-and-down">
+              <li><%= link_to "会員登録", new_user_registration_path%></li>
+              <li><%= link_to "ログイン", new_user_session_path %></li>
               <li>マイページ</li>
               <li><%= link_to "ログアウト", destroy_user_session_path, method: :delete %></li>
             </ul>
       </div>
     </nav>
-    <div class="container">
-    </div>
     <%= yield %>
   </body>
 </html>
