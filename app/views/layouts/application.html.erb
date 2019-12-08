@@ -7,13 +7,30 @@
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+      <!--Import Google Icon Font-->
+      <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+      <!--Import materialize.css-->
+      <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
+      <!--Let browser know website is optimized for mobile-->
+      <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   </head>
 
   <body>
     <nav>
-      <div class="nav-wrapper green">
+      <div class="nav-wrapper teal darken-4">
+        <div class="brand-logo center"><%= link_to "Ball Park", tops_top_path %></div>
+            <ul id="nav-mobile" class="left hide-on-med-and-down">
+              <li><%= link_to "投稿を作成する", new_recruitment_path %></li>
+              <li><%= link_to "投稿一覧", recruitments_path %></li>
+            </ul>
+            <ul id="nav-mobile" class="right hide-on-med-and-down">
+              <li>マイページ</li>
+              <li><%= link_to "ログアウト", destroy_user_session_path, method: :delete %></li>
+            </ul>
       </div>
     </nav>
+    <div class="container">
+    </div>
     <%= yield %>
   </body>
 </html>
