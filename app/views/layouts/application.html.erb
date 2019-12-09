@@ -18,16 +18,21 @@
     <nav>
       <div class="nav-wrapper teal darken-4">
         <div class="brand-logo center"><%= link_to "Ball Park", tops_top_path %></div>
+            <% if user_signed_in? %>
             <ul id="nav-mobile" class="left hide-on-med-and-down">
               <li><%= link_to "投稿を作成する", new_recruitment_path %></li>
               <li><%= link_to "投稿一覧", recruitments_path %></li>
             </ul>
             <ul id="nav-mobile" class="right hide-on-med-and-down">
-              <li><%= link_to "会員登録", new_user_registration_path%></li>
-              <li><%= link_to "ログイン", new_user_session_path %></li>
-              <li>マイページ</li>
+              <li><%= link_to 'マイページ', user_path(current_user.id) %></li>
               <li><%= link_to "ログアウト", destroy_user_session_path, method: :delete %></li>
             </ul>
+            <% else %>
+            <ul id="nav-mobile" class="right hide-on-med-and-down">
+              <li><%= link_to "会員登録", new_user_registration_path%></li>
+              <li><%= link_to "ログイン", new_user_session_path %></li>
+            </ul>
+            <% end %>
       </div>
     </nav>
     <%= yield %>

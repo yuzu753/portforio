@@ -1,6 +1,11 @@
 <div class= container>
+<% if flash[:notice] %>
+　<div class="flash">
+　　<%= flash[:notice] %>
+</div>
+<% end %>
   <h3>ログイン</h3>
-    <%= form_with scope: :session,url: user_session_path do |f| %>
+    <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
           <div class="form-group">
              <i class="material-icons prefix">email</i>
              <%= f.label :email, 'メールアドレス' %>
@@ -18,4 +23,3 @@
           </button>
     <% end %>
 </div>
-

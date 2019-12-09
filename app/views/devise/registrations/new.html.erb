@@ -1,20 +1,21 @@
 <div class="container">
  <h3>アカウント作成</h3>
-        <%= form_with model: User do |f| %>
+        <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
           <div class="form-group">
             <i class="material-icons prefix">account_circle</i>
             <%= f.label :name, 'ユーザー名' %>
-            <%= f.text_field :name, class: 'form-control' %>
+            <%= f.text_field :name, autofocus: true, class:"form-control", id: "inputName", placeholder:"ユーザー名" %>
           </div>
           <div class="form-group">
              <i class="material-icons prefix">email</i>
              <%= f.label :email, 'メールアドレス' %>
-             <%= f.text_field :email, class: 'form-control' %>
+             <%= f.email_field :email, autofocus: true, autocomplete: "email", :type => "text", :id => "email", :class => "form-control" %>
           </div>
           <div class="form-group">
              <i class="material-icons prefix">vpn_key</i>
              <%= f.label :password, 'パスワード' %>
-             <%= f.password_field :password, autocomplete: "new-password", :type => "password", :id => "email", :class => "form-control input-sm chat-input" %>
+            　<% if @minimum_password_length %><em>(<%= @minimum_password_length %> characters minimum)</em><% end %><br />
+                <%= f.password_field :password, autocomplete: "new-password", :type => "password", :id => "email", :class => "form-control input-sm chat-input" %>
           </div>
           <div class="form-group">
             <i class="material-icons prefix"></i>
