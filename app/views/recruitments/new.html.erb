@@ -47,18 +47,21 @@
 			  	 <%= f.text_field :address, autofocus: :true, class:"form-control", id: "inpurAddress", placeholder:"住所" %>
 			  </div>
 			  <%= f.fields_for :tag do |t| %>
-			  　<div class="chips">
 			　　　<%= t.label :tag, 'タグ' %>
-			  	 <%= t.text_field :tag, autofocus: :name, class:"chips", id: "inputTag" %>
-			  	 <textarea name="tag_name" class="form-control post_form"></textarea>
-			    </div>
+				<div class="chips"></div>
+			  	 <%= t.text_field :tag, autofocus: :name, class:"form-control", id: "inputTag" %>
 			  <% end %>
           　　 <button class="btn waves-effect waves-light teal darken-4" type="submit" name="action">
                <i class="material-icons right">send</i>
-               <%= f.submit "" %>投稿する
+               <%= f.button "", type: 'button', onclick: 'submit()' %>投稿する
                </button>
 			<% end %>
 		</div>
 	</div>
 </div>
+<script>
+  // Or with jQuery
+$('.chips').chips();
+
+</script>
 

@@ -4,7 +4,8 @@ class RecruitmentsController < ApplicationController
   end
 
   def show
-    @rucruitment = Recruitment.find(params[:id])
+    @recruitment = Recruitment.find(params[:id])
+    @user = @recruitment.user
   end
 
   def new
