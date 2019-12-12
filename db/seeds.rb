@@ -12,3 +12,33 @@ User.create!(
   password: 'testtest',
   self_introduction: 'メジャーリーグ目指してます',
 )
+
+Recruitment.create!(
+  user_id: 1,
+  category: 2,
+  title: 'テスト',
+  body: 'sumple',
+  area: 16,
+  address: '東京都渋谷区神宮2-12-22',
+  recruitments_number: 3,
+)
+
+Recruitment.create!(
+  user_id: 1,
+  category: 3,
+  title: 'ゲリットコール',
+  body: '悪の帝国復活',
+  area: 16,
+  address: '東京都渋谷区神宮2-12-22',
+  recruitments_number: 3,
+)
+
+Recruitment.create!(
+  user_id: 1,
+  category: 1,
+  title: 'ベイスターズ',
+  body: '横浜優勝＼(^o^)／',
+  area: 16,
+  address: '東京都渋谷区神宮2-12-22',
+  recruitments_number: 3,
+)
