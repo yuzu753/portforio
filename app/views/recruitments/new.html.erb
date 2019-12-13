@@ -16,7 +16,7 @@
 	</div>
 	<div class="row">
 		<div class="offset-s2 col s8 offset-s2">
-			<%= form_for(@recruitment) do |f| %>
+			<%= form_for @recruitment do |f| %>
 			  <div class="input-field">
 			  	 <%= f.label :category, 'カテゴリー' %><br>
 			  	 <%= f.select :category, Recruitment.categories.keys.to_a, {} %>
@@ -46,16 +46,15 @@
 			  	 <%= f.label :address, '住所' %>
 			  	 <%= f.text_field :address, autofocus: :true, class:"form-control", id: "inpurAddress", placeholder:"住所" %>
 			  </div>
-			  <%= f.fields_for :tag do |t| %>
-			　　　<%= t.label :tag, 'タグ' %>
+<!-- 			  <%= f.fields_for :tag do |t| %>
+			<%= t.label :tag, 'タグ' %>
 				<div class="chips"></div>
-			  	 <%= t.text_field :tag, autofocus: :name, class:"form-control", id: "inputTag" %>
+			  <% end %> -->
+              <button class="btn waves-effect waves-light teal darken-4" type="submit" name="action">
+                <i class="material-icons right">send</i>
+                  <%= f.submit "" %>投稿する
+                </button>
 			  <% end %>
-          　　 <button class="btn waves-effect waves-light teal darken-4" type="submit" name="action">
-               <i class="material-icons right">send</i>
-               <%= f.button "", type: 'button', onclick: 'submit()' %>投稿する
-               </button>
-			<% end %>
 		</div>
 	</div>
 </div>

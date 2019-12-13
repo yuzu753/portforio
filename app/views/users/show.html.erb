@@ -8,8 +8,12 @@
   <div class="row">
   <div class="row">
   	 <button class="btn waves-effect waves-light teal darken-3" type="submit" name="action">
-       <i class="material-icons right">send</i>メッセージを送る
+       <i class="material-icons right">send</i>ボタン
      </button>
+    <%= form_tag :chat_index, method: :post do %>
+      <input name="user_id" type="hidden" value="<%= user.id %>" />
+      <%= submit_tag 'メッセージを送る', class: "chatForm_btn" %>
+    <% end %>
   </div>
   <div class="row">
   	<div class="offset-s2 col s4">
