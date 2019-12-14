@@ -10,16 +10,17 @@ class RecruitmentsController < ApplicationController
 
   def new
     @recruitment = Recruitment.new
+    @user = current_user
   end
 
   def create
     @recruitment = Recruitment.new(recruitment_params)
+    @recruitment.user_id = current_user.id
     if
       @recruitment.save
       redirect_to complete_path
     else
-      redirect_to new_recruitment_path
-      binding.pry
+      redirect_to root_path
     end
     #    redirect_to comlete_path
     #    tag_list = params[:tags_name].split(",")

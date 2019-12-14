@@ -1,16 +1,14 @@
 <div class="container">
 	<div class="row">
 		<h1>チャット一覧</h1>
-		<% @rucruitments.each do |r| %>
+		<% @chat.each do |c| %>
 		  <div class="col s12">
 		  	<div class= "card">
 		  		<div class="card-content">
 		  			<span class="card-title">
-		  				<a href="/recruitments/<%= r.id %>">
-		  				  <%= r.title %>
+		  				  <%= t. %>
 		  			    </a>
 		  			</span>
-		  			<p class="category"><%= r.category %></p>
 		  		</div>
 		  	</div>
 		  </div>
