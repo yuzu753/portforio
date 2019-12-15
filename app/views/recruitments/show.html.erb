@@ -1,2 +1,53 @@
-<h1>Recruitments#show</h1>
-<p>Find me in app/views/recruitments/show.html.erb</p>
+<div class="container">
+	<div class="row">
+	  <div class="offset-s2 col s8">
+	  	<div class= "col-s8 right-align">
+	  	   	<% if @recruitment.user == current_user %>
+	  	   	 	<%= link_to  edit_recruitment_path, class:" waves-effect waves-light btn teal darken-3" do %>
+	  	   	 	  <i class="material-icons">edit</i>
+	  	   	 	<% end %>
+	  	   	 	<%= link_to  recruitment_path(@recruitment), method: :delete, "data-confirm" => "Are you sure?", class:"waves-effect waves-light btn teal darken-3" do %>
+	  	   	 	  <i class="material-icons">delete</i>
+	  	   	 	<% end %>
+	  	   	<% end %>
+  	   </div>
+		<ul class="collection">
+			<li class="collection-item avatar">
+				<i class="material-icons circle teal darken-3">title</i>
+				<span class="title">Title</span>
+				<p><%= @recruitment.title %></p>
+			</li>
+			<li class="collection-item avatar">
+				<i class="material-icons circle teal darken-3">person</i>
+				<span class="title">ユーザー</span>
+				<p><%= @user.name %>
+			</li>
+			<li class="collection-item avatar">
+				<i class="material-icons circle teal darken-3">schedule</i>
+				<span class="title">開催日</span>
+				<p><%= @recruitment.event_date %>
+			</li>
+			<li class="collection-item avatar">
+				<i class="material-icons circle teal darken-3">place</i>
+				<span class="title">場所</span>
+				<p><%= @recruitment.address %>
+			</li>
+			<li class="collection-item avatar">
+				<i class="material-icons circle teal darken-3">people</i>
+				<span class="title">募集人数</span>
+				<p><%= @recruitment.recruitments_number %>
+			</li>
+			<li class="collection-item avatar">
+				<i class="material-icons circle teal darken-3">dns</i>
+				<span class="title">タグ</span>
+				<p>タグが入ります</p>
+			</li>
+			<li class="collection-item avatar">
+				<i class="material-icons circle teal darken-3">content_paste</i>
+				<span class="title">内容</span>
+				<p><%= @recruitment.body %>
+			</li>
+		</ul>
+	  </div>
+	</div>
+</div>
