@@ -24,8 +24,7 @@
 			  </div>
 			  <div class="input-field">
 			  	 <%= f.label :event_date, '開催日' %><br>
-<!-- 			  	 <%= f.date_select :event_date %> -->
-			  	 <input type="text" class="datepicker">
+　　　　　　　　　　<%= f.date_select :event_date %>
 			  </div>
 			  <div class="input-field">
 	            <%= f.label :name, 'タイトル' %><br>
@@ -45,11 +44,15 @@
 			  </div>
 			  <div class="input-field">
 			  	 <%= f.label :address, '住所' %>
-			  	 <%= f.text_field :address, autofocus: :true, class:"form-control", id: "inpurAddress", placeholder:"住所" %>
+			  	 <%= f.text_field :address, autofocus: :true, class:"form-control", id: "inputAddress", placeholder:"住所" %>
 			  </div>
      		  <%= f.fields_for :tag do |t| %>
-			    <%= t.label :tag, 'タグ' %>
+			    <%= t.label :name, 'タグ' %>
 				<div class="chips"></div>
+			  <% end %>
+     		  <%= f.fields_for :tag do |t| %>
+			    <%= t.label :name, 'タグ' %>
+				<%= t.text_field :name, autofocus: :true, class:"chips" %>
 			  <% end %>
               <button class="btn waves-effect waves-light teal darken-4" type="submit" name="action">
                 <i class="material-icons right">send</i>

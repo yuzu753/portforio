@@ -42,11 +42,3 @@ Recruitment.create!(
   address: '東京都渋谷区神宮2-12-22',
   recruitments_number: 3,
 )
-
-# Tag.create([
-# 	{ name: 'ガチ'}
-# 	{ name: '初心者'}
-# 	{ name: '誰でも'}
-# 	{ name: 'エンジョイ'}
-# 	{ name: '男女ミックス'}
-])
