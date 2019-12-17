@@ -5,11 +5,14 @@
 		  	<div class= "card">
 		  		<div class="card-content">
 		  			<span class="card-title">
-		  				<a href="/recruitments/<%= r.id %>">
 		  				  <%= r.title %>
-		  			    </a>
 		  			</span>
-		  			<p class="category"><%= r.category %></p>
+		  			<div class="chip teal darken-3 white-text"><%= r.category %></div>
+                    <%= link_to recruitment_path(r.id) do %>
+		  			  <button class="btn waves-effect waves-light teal darken-3" type="submit" name="action">
+                       <i class="material-icons right">send</i>もっと詳しく
+                      </button>
+                    <% end %>
 		  		</div>
 		  	</div>
 		  </div>

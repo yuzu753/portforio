@@ -6,26 +6,22 @@
 		<li class= "collection-item"><%= @user.self_introduction %></li>
 	</ul>
   <div class="row">
-  <div class="row">
-  	 <button class="btn waves-effect waves-light teal darken-3" type="submit" name="action">
-       <i class="material-icons right">send</i>ボタン
+    <% if @user.id != current_user.id %>
+     <button class="btn waves-effect waves-light teal darken-4" type="submit" name="action">
+       <%= link_to "チャット", chat_index_path(@user), method: :post %>
      </button>
-            <%= form_tag :chat_index, method: :post do %>
-              <input name="user_id" type="hidden" value="<%= user.id %>" />
-              <%= submit_tag 'チャットを開く', class: "chatForm_btn" %>
-            <% end %>
+    <% end %>
   </div>
-  <div class="row">
   	<div class="offset-s2 col s4">
   	 <ul class= "collection">
   	 	<li class="collection-item avatar">
   	 	  <%= link_to chat_index_path do %>
-  	 	    <i class="material-icons circle teal darken-3">chat</i>チャット一覧
+  	 	    <i class="material-icons circle teal darken-3">chat</i><p class="text">チャット一覧</p>
   	 	  <% end %>
   	 	</li>
   	 	<li class="collection-item avatar">
   	 	  <%= link_to log_path do %>
-  	 	    <i class="material-icons circle teal darken-3">playlist_add_check</i>投稿一覧
+  	 	    <i class="material-icons circle teal darken-3">playlist_add_check</i><p class="text">投稿一覧</p>
   	 	  <% end %>
   	 	</li>
   	 </ul>
@@ -34,12 +30,12 @@
   	 <ul class= "collection">
   	 	<li class="collection-item avatar">
   	 	  <%= link_to edit_user_path do %>
-  	 	    <i class="material-icons circle teal darken-3">edit</i>プロフィール編集
+  	 	    <i class="material-icons circle teal darken-3">edit</i><p class="text">プロフィール編集</p>
   	 	  <% end %>
   	 	</li>
   	 	<li class="collection-item avatar">
   	 	  <%= link_to user_path method: :destroy do %>
-  	 	    <i class="material-icons circle teal darken-3">priority_high</i>退会
+  	 	    <i class="material-icons circle teal darken-3">priority_high</i><p class="text">退会</p>
   	 	  <% end %>
   	 	</li>
   	 </ul>
