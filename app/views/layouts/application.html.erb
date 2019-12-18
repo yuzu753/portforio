@@ -30,6 +30,7 @@
               <li><%= link_to "投稿一覧", recruitments_path %></li>
             </ul>
             <ul id="nav-mobile" class="right hide-on-med-and-down">
+              <li><%= link_to 'つながる', users_path %></li>
               <li><%= link_to 'マイページ', user_path(current_user.id) %></li>
               <li><%= link_to "ログアウト", destroy_user_session_path, method: :delete %></li>
             </ul>

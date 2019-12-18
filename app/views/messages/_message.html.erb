@@ -1,3 +1,7 @@
 <div class="messages">
-  <p><%= message.message %></p>
+ <ul class="collection">
+  <li class="collection-item"><%= "#{message.created_at.strftime('%m/%d %H:%M')} #{message.user.name} #{ message.message }" %></li>
+ </ul>
 </div>
+
+<% message.message %>

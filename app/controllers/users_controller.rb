@@ -12,6 +12,8 @@ class UsersController < ApplicationController
   end
 
   def log
+    @user = User.find(params[:id])
+    @recruitments = @user.recruitments
   end
 
   def update
@@ -33,6 +35,6 @@ class UsersController < ApplicationController
 
     private
    def user_params
-     params.require(:user).permit(:name,:self_introduction,)
+     params.require(:user).permit(:name,:self_introduction,:profile_image)
    end
 end

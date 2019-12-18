@@ -8,8 +8,14 @@ class RoomChannel < ApplicationCable::Channel
   end
 
   def speak(data)
-    message = ChatMessage.create!(chat_room_id: params['chat_room_id'], user_id: current_user.id, message: data["message"])
-  	ActionCable.server.broadcast 'room_channel', message: render_message(message)
+    message = ChatMessage.new(chat_room_id: params['chat_room_id'], user_id: current_user.id, message: data["message"])
+    message.save!
+    image = current_user.profile_image
+    # if current_user.profile_image.attached?
+  	ActionCable.server.broadcast 'room_channel', message: render_message(message), created_at: message.created_at.strftime('%m/%d %H:%M')
+    # else
+    # ActionCable.server.broadcast 'room_channel', message: render_message(message), profile_image: nil
+    # end
   end
 
   def render_message(message)

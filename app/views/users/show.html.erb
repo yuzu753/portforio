@@ -1,7 +1,7 @@
 <div class= "container">
   <div class="row">
 	<ul class = "collection">
-		<li class= "collection-item">プロフィール画像</li>
+		<li class= "collection-item"><%= attachment_image_tag @user, :profile_image,　format: 'jpg', fallback: "no_image.jpg", size: "100x100" %></li>
 		<li class= "collection-item"><%= @user.name %></li>
 		<li class= "collection-item"><%= @user.self_introduction %></li>
 	</ul>
@@ -20,7 +20,7 @@
   	 	  <% end %>
   	 	</li>
   	 	<li class="collection-item avatar">
-  	 	  <%= link_to log_path do %>
+  	 	  <%= link_to log_user_path do %>
   	 	    <i class="material-icons circle teal darken-3">playlist_add_check</i><p class="text">投稿一覧</p>
   	 	  <% end %>
   	 	</li>
@@ -42,3 +42,21 @@
   	</div>
   </div>
 </div>
+
+  <div class="card">
+    <div class="card-content">
+      <p>I am a very simple card. I am good at containing small bits of information. I am convenient because I require little markup to use effectively.</p>
+    </div>
+    <div class="card-tabs">
+      <ul class="tabs tabs-fixed-width">
+        <li class="tab"><a href="#test4">Test 1</a></li>
+        <li class="tab"><a class="active" href="#test5">Test 2</a></li>
+        <li class="tab"><a href="#test6">Test 3</a></li>
+      </ul>
+    </div>
+    <div class="card-content grey lighten-4">
+      <div id="test4">Test 1</div>
+      <div id="test5">Test 2</div>
+      <div id="test6">Test 3</div>
+    </div>
+  </div>

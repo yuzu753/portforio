@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_12_14_061413) do
+ActiveRecord::Schema.define(version: 2019_12_18_070625) do
 
   create_table "chat_messages", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.datetime "created_at", null: false
@@ -71,6 +71,10 @@ ActiveRecord::Schema.define(version: 2019_12_14_061413) do
     t.string "self_introduction", limit: 500
     t.datetime "deleted_at"
     t.integer "role"
+    t.string "img_name"
+    t.string "team"
+    t.string "profile_img"
+    t.string "profile_image_id"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
