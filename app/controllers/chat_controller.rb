@@ -4,6 +4,7 @@ class ChatController < ApplicationController
   end
 
   def create
+    # ログインユーザーの持っているチャットルームを探す、なければ作成
   	current_user_chat_rooms = ChatRoomUser.where(user_id: current_user.id).map(&:chat_room)
   	chat_room = ChatRoomUser.where(chat_room: current_user_chat_rooms, user_id: params[:user_id]).map(&:chat_room).first
   	if chat_room.blank?
@@ -11,7 +12,7 @@ class ChatController < ApplicationController
 	  	@chat_room.chat_room_users.new(user_id: current_user.id)
 	  	@chat_room.chat_room_users.new(user_id: params[:user_id])
 	  	@chat_room.save
-	  	redirect_to chat_room_path(@chat_room.id)
+	  	redirect_to chat_path(@chat_room.id)
 	else
 	    redirect_to action: :show, id: chat_room.id
 	end

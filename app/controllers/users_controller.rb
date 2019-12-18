@@ -12,6 +12,8 @@ class UsersController < ApplicationController
   end
 
   def log
+    @user = User.find(params[:id])
+    @recruitments = @user.recruitments
   end
 
   def update
