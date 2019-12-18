@@ -6,4 +6,5 @@ class User < ApplicationRecord
   has_many :recruitments
   has_many :chat_room_users
   has_many :chat_messages
+  attachment :profile_image
 end

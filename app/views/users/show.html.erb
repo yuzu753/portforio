@@ -1,7 +1,7 @@
 <div class= "container">
   <div class="row">
 	<ul class = "collection">
-		<li class= "collection-item">プロフィール画像</li>
+		<li class= "collection-item"><%= attachment_image_tag @user, :profile_image,　format: 'jpg', fallback: "no_image.jpg", size: "100x100" %></li>
 		<li class= "collection-item"><%= @user.name %></li>
 		<li class= "collection-item"><%= @user.self_introduction %></li>
 	</ul>
