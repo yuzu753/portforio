@@ -1,0 +1,36 @@
+<div class="container">
+	<div class="row">
+	    <%= search_form_for @q, url: search_path do |f| %>
+	      <div class="text-center content-search">
+	        <%= f.label :title, "Posts title" %>
+	        <%= f.search_field :title_cont %>
+	        <%= f.submit "検索", class:'btn waves-effect waves-light teal darken-3 white-text' %>
+	      </div>
+	    <% end %>
+	</div>
+	<div class="row">
+		<% if @recruitments.present? %>
+		   <% @recruitments.each do |r| %>
+		  	<div class= "card">
+		  		<div class="card-content">
+		  			<span class="card-title">
+		  				  <%= r.title %>
+		  			</span>
+		  			<div class="chip teal darken-3 white-text"><%= r.category %></div>
+                    <%= link_to recruitment_path(r.id) do %>
+		  			  <button class="btn waves-effect waves-light teal darken-3" type="submit" name="action">
+                       <i class="material-icons right">send</i>もっと詳しく
+                      </button>
+                    <% end %>
+		  		</div>
+		  	</div>
+		  	    <% end %>
+		   <% else %>
+		    <div class="card">
+		    	<div class= "card-content">
+		    		<h3 class="text-center">検索結果はありません</h3>
+		    	</div>
+		    </div>
+		<% end %>
+	</div>
+</div>

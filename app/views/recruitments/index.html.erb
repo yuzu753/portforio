@@ -1,6 +1,23 @@
 <div class="container">
+<!-- 	検索 -->
 	<div class="row">
-		<% @rucruitments.each do |r| %>
+	 <div class="card">
+	    <%= search_form_for @q, url: {controller: "recruitments", action: "search"} do |f| %>
+	      <div>
+	        <%= f.label :title_cont, "タイトル", class: "form-label" %>
+	        <%= f.search_field :title_cont, class: "form-field" %>
+            <%= f.label :event_date_gteq, "開催日" %>
+            <%= f.date_field :event_date_gteq, data:{ provide:'datepicker' } %>
+            <%= f.label :category__eq, "カテゴリー" %>
+            <%= f.collection_select(:category, Recruitment.category, :id, :category,  {prompt: "選択してください"} ) %>
+	        <%= f.submit "検索", class:'btn waves-effect waves-light teal darken-3' %>
+	      </div>
+	    <% end %>
+	 </div>
+	</div>
+<!-- 	一覧 -->
+	<div class="row">
+		<% @recruitments.each do |r| %>
 		  <div class="col s12">
 		  	<div class= "card">
 		  		<div class="card-content">

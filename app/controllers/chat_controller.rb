@@ -1,6 +1,6 @@
 class ChatController < ApplicationController
   def index
-  	@chat = ChatRoom.all
+  	@chat = current_user.chat_rooms
   end
 
   def create
@@ -20,6 +20,6 @@ class ChatController < ApplicationController
 
   def show
   	@room = ChatRoom.find(params[:id])
-    @messages = ChatMessage.all
+    @messages = @room.chat_messages.all
   end
 end
