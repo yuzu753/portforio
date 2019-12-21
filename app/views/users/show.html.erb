@@ -8,10 +8,11 @@
   <div class="row">
     <% if @user.id != current_user.id %>
      <button class="btn waves-effect waves-light teal darken-4" type="submit" name="action">
-       <%= link_to "チャット", chat_index_path(@user), method: :post %>
+       <%= link_to "チャット", create_chat_room_path(@user), method: :post %>
      </button>
     <% end %>
   </div>
+    <% if @user.id == current_user.id %>
   	<div class="offset-s2 col s4">
   	 <ul class= "collection">
   	 	<li class="collection-item avatar">
@@ -40,5 +41,6 @@
   	 	</li>
   	 </ul>
   	</div>
+    <% end %>
   </div>
 </div>

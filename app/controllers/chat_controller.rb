@@ -13,6 +13,7 @@ class ChatController < ApplicationController
 	  	@chat_room.chat_room_users.new(user_id: params[:user_id])
 	  	@chat_room.save
 	  	redirect_to chat_path(@chat_room.id)
+      binding.pry
 	else
 	    redirect_to action: :show, id: chat_room.id
 	end

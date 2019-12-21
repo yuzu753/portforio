@@ -9,4 +9,5 @@ class User < ApplicationRecord
   has_many :chat_messages
   attachment :profile_image
 
+  acts_as_paranoid
 end
