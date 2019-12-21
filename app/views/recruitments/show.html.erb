@@ -48,6 +48,13 @@
 				<p><%= @recruitment.body %>
 			</li>
 		</ul>
+		    <% if @user.id != current_user.id %>
+		       <%= link_to create_chat_room_path(@user), method: :post do %>
+		         <button class="btn waves-effect waves-light teal darken-4" type="submit" name="action">
+		         	<i class="material-icons right">send</i>メッセージを送る
+		         </button>
+		       <% end %>
+		    <% end %>
 	  </div>
 	</div>
 </div>

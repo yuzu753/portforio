@@ -14,8 +14,10 @@ class RecruitmentsController < ApplicationController
   end
 
   def show
+    user = current_user
+    @user = User.find(params[:id])
     @recruitment = Recruitment.find(params[:id])
-    @user = @recruitment.user
+
   end
 
   def new
@@ -28,7 +30,7 @@ class RecruitmentsController < ApplicationController
     @recruitment.user_id = current_user.id
     if
       @recruitment.save
-      redirect_to complete_path
+      redirect_to recruitments_path
     else
       redirect_to root_path
     end
@@ -52,12 +54,6 @@ class RecruitmentsController < ApplicationController
     else
       render :edit
     end
-  end
-  def confirmation
-  end
-
-
-  def complete
   end
 
   private

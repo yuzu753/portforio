@@ -10,7 +10,6 @@ Rails.application.routes.draw do
 
   # 投稿関係
   resources :recruitments
-  get 'complete', to: 'recruitments#complete'
   get '/search', to: 'recruitments#search', as: 'search'
 
   # ユーザー関係
