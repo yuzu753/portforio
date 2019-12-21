@@ -14,10 +14,9 @@ class RecruitmentsController < ApplicationController
   end
 
   def show
-    user = current_user
     @user = User.find(params[:id])
     @recruitment = Recruitment.find(params[:id])
-
+    binding.pry
   end
 
   def new

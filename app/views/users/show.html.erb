@@ -1,15 +1,19 @@
 <div class= "container">
   <div class="row">
+  <div class="offset-s3 col s6">
 	<ul class = "collection">
-		<li class= "collection-item"><%= attachment_image_tag @user, :profile_image,　format: 'jpg', fallback: "no_image.jpg", size: "100x100" %></li>
-		<li class= "collection-item"><%= @user.name %></li>
-		<li class= "collection-item"><%= @user.self_introduction %></li>
+		<li class= "collection-item center"><%= attachment_image_tag @user, :profile_image,　format: 'png', fallback: "no_image.png", size: "100x100" %></li>
+		<li class= "collection-item center"><%= @user.name %></li>
+		<li class= "collection-item center"><%= @user.self_introduction %></li>
 	</ul>
+  </div>
   <div class="row">
     <% if @user.id != current_user.id %>
-     <button class="btn waves-effect waves-light teal darken-4" type="submit" name="action">
-       <%= link_to "チャット", create_chat_room_path(@user), method: :post %>
-     </button>
+       <%= link_to create_chat_room_path(@user), method: :post do %>
+       <button class="btn waves-effect waves-light teal darken-4" type="submit" name="action">
+          <i class="material-icons right">send</i><%= @user.name %>さんへメッセージを送る
+       </button>
+       <% end %>
     <% end %>
   </div>
     <% if @user.id == current_user.id %>

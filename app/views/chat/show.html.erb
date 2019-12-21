@@ -1,14 +1,14 @@
 <div class="container">
 	<div class="row">
     <h1>Chat Room</h1>
-    <div id="messages", data-chat_room_id="<%= @room.id %>">
-      <%= render partial: 'messages/message', collection: @messages %>
-    </div>
-  </ul>
     <div class="input">
     <form>
       <label>message</label>
       <input type="text" data-behavior='room_speaker'>
     </form>
   　</div>
+    <div id="messages", data-chat_room_id="<%= @room.id %>">
+      <%= render partial: 'messages/message', collection: @messages %>
+    </div>
+  </ul>
 </div>

@@ -1,16 +1,16 @@
 <div class="container">
 	<div class="row">
-		<h1>チャット一覧</h1>
+	  <h4><%= current_user.name %>さんのDM一覧</h4>
+	  <div class="offset-s2 col s8">
 		<% @chat.each do |c| %>
-		  <div class="col s12">
-		  	<div class= "card">
-		  		<div class="card-content">
-		  			<span class="card-title">
-		  			    <%= link_to c.id, chat_path(c.id) %>
-		  			</span>
-		  		</div>
-		  	</div>
-		  </div>
+		<ul class= "collection">
+		  	<% c.chat_room_users.each do |u| %>
+		  	  <% if u.user.id != current_user.id %>
+		  		<%= link_to u.user.name, chat_path(c.id), class: "collection-item avatar" %>
+		  	   </ul>
+		  	  <% end %>
+		  	<% end %>
 		<% end %>
+	  </div>
 	</div>
 </div>

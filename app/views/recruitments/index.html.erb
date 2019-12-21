@@ -8,12 +8,10 @@
 	        <%= f.search_field :title_cont, class: "form-field" %>
             <%= f.label :event_date_gteq, "開催日" %>
             <%= f.date_field :event_date_gteq, data:{ provide:'datepicker' } ,class: "col s4"%>
-            <%= f.label :category_eq, "カテゴリー" %>
             <%= f.select :category_eq, Recruitment.categories.map{|k,v| [Recruitment.categories_i18n[k], v]},{ include_blank: 'カテゴリー' } %>
-            <%= f.label :area_eq, "カテゴリー" %>
             <%= f.select :area_eq, Recruitment.areas.map{|k,v| [Recruitment.areas_i18n[k], v]},{ include_blank: 'エリア' } %>
             <button class="btn waves-effect waves-light teal darken-4" type="submit" name="action">
-              <i class="material-icons">search</i>
+              <i class="material-icons center">search</i>
               <%= f.submit "" %>
             </button>
 	    <% end %>
