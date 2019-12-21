@@ -1,7 +1,7 @@
 class RecruitmentsController < ApplicationController
   def index
     # 全件表示
-    @recruitments = Recruitment.all
+    @recruitments = Recruitment.page(params[:page]).per(5)
     @recrruitment = Recruitment.new
     # 検索
     @q = Recruitment.ransack(params[:q])
