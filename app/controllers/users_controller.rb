@@ -1,6 +1,14 @@
 class UsersController < ApplicationController
   def index
     @users = User.page(params[:page]).per(25)
+    # 検索
+    @q = User.ransack(params[:q])
+    rectuitments = @q.result(distinct: true)
+  end
+
+  def search
+    @q = User.search(search_params)
+    @recruitments = @q.result(distinct: true)
   end
 
   def show
@@ -37,4 +45,9 @@ class UsersController < ApplicationController
    def user_params
      params.require(:user).permit(:name,:self_introduction,:profile_image)
    end
+
+  def search_params
+      params.require(:q).permit!
+  end
+
 end
