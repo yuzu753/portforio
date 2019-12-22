@@ -4,7 +4,7 @@
 			<%= form_for(@user, url:user_path) do |f| %>
 			  <div class="form-group">
 			    <div class="file-field input-field">
-			        <%= attachment_image_tag @user, :profile_image, :fill, 60, 60, class: "img-circle pull-left profile-thumb", fallback: "no_image.jpg"%>
+			        <%= attachment_image_tag @user, :profile_image, :fill, 60, 60, class: "img-circle pull-left profile-thumb", fallback: "no_image.png"%>
 			    </div>
 			    <label class="control-label sr-only" for="inputEmail">ProfileImage</label>
 			    <%= f.attachment_field :profile_image, placeholder: "プロフィール画像", class: "file-field input-field" %>

@@ -1,17 +1,32 @@
 <div class="container">
 	<div class="row">
-		<% @users.each do |u| %>
-		  <div class="offset-s2 col s8">
-		  	<ul class="collection">
-		  		<li class="collection-item">
-		  			<i><%= attachment_image_tag u, :profile_image,　format: 'jpeg', fallback: "no_image.jpg", size: "40x40" %></i>
-		  			<span><%= u.name %></span>
-		  			<%= link_to user_path(u.id) do %>
-		  			  <i class="material-icons">send</i>
-		  			<% end %>
-		  		</li>
-		  	</ul>
+		  <div class="offset-s3 col s7">
+		  	<table class="collection">
+		  		<thead>
+		  			<tr>
+		  			  <th></th>
+		  			  <th></th>
+		  			  <th></th>
+		  			</tr>
+		  		</thead>
+		  		<tbody>
+		  		 <% @users.each do |u| %>
+		  		  <tr>
+		  		  	<th>
+		  		  		<%= attachment_image_tag u, :profile_image,　format: 'png', fallback: "no_image.png", size: "50x50", class: 'circle' %>
+		  		  	</th>
+		  		  	<th><%= u.name %></th>
+		  		  	<th>
+			  			<%= link_to user_path(u.id) do %>
+			  			  <i class="material-icons">send</i>
+			  			<% end %>
+		  		    </th>
+		  		 <% end %>
+		  		</tbody>
+		  	</table>
 		  </div>
-		<% end %>
 	</div>
+</div>
+<div style="text-align:center">
+  <%= paginate @users %>
 </div>

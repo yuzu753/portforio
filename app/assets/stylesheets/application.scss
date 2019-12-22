@@ -14,10 +14,17 @@
  *= require material_icons
  *= require_self
  */
-
- @import "materialize";
+ @import "materialize/components/color-variables";
+ $primary-color: color("teal", "darken-4") !default;
+ @import 'materialize';
  @import "https://fonts.googleapis.com/icon?family=Material+Icons";
+
 
 .text{
 	color: black;
+}
+
+a {
+  color: white;
+  text-decoration: none;
 }

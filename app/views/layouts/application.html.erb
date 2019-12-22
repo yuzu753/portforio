@@ -7,7 +7,6 @@
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
       <!--Import Google Icon Font-->
       <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
       <!--Import materialize.css-->
@@ -55,5 +54,23 @@
   });
 </script>
     <%= yield %>
-  </body>
+
+<footer class="page-footer">
+  <div class="container">
+    <div class="row">
+        <div class="col l6 s12">
+          <h5 class="white-text">Ball Park</h5>
+          <p class="grey-text text-lighten-4">野球をもっと身近に</p>
+        </div>
+        <div class="col l4 offset-l2 s12">
+          <h5 class="white-text">Links</h5>
+            <ul>
+              <li class="white-text"><a href="/recruitments" href="#!">投稿一覧</a></li>
+              <li><a href="/users">ユーザーとつながる</a></li>
+            </ul>
+        </div>
+    </div>
+  </div>
+</footer>
+</body>
 </html>
