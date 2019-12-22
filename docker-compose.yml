@@ -3,7 +3,7 @@ services:
   db:
      image: mysql:5.7
      volumes:
-       - db-volume:/var/lib/mysql
+      - db-volume:/var/lib/mysql
      environment:
       - MYSQL_ROOT_PASSWORD=password
   web:
@@ -18,4 +18,4 @@ services:
      tty: true
      stdin_open: true
 volumes:
-   db-volume:
+  db-volume:

@@ -71,9 +71,6 @@ ActiveRecord::Schema.define(version: 2019_12_18_070625) do
     t.string "self_introduction", limit: 500
     t.datetime "deleted_at"
     t.integer "role"
-    t.string "img_name"
-    t.string "team"
-    t.string "profile_img"
     t.string "profile_image_id"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
