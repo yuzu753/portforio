@@ -2,8 +2,8 @@
 	<div class="row">
 	 <div class="card offset-s3 col s6">
 	 　<div class="card-content">
-	    <%= search_form_for @q, url: user_search_path do |f| %>
-	        <%= f.label :name_cont, "タイトル", class: "form-label" %>
+	    <%= search_form_for @q, url: users_search_path do |f| %>
+	        <%= f.label :name_cont, "ユーザー名", class: "form-label" %>
 	        <%= f.search_field :name_cont, class: "form-field" %>
             <button class="btn waves-effect waves-light teal darken-4" type="submit" name="action">
               <i class="material-icons center">search</i>
