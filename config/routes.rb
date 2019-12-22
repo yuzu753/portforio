@@ -16,6 +16,7 @@ Rails.application.routes.draw do
   resources :users do
   get 'log', to: 'users#log', on: :member
   end
+  get 'user/search', to: 'users#search', as: 'users_search'
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
