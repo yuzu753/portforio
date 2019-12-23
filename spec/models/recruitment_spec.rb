@@ -3,7 +3,10 @@ require 'rails_helper'
 RSpec.describe Recruitment, type: :model do
     describe '#Recruitment' do
     context '登録する' do
-       it '正しく登録できること )' do
+       it '正しく登録できる' do
+
+      	user = FactoryBot.build(:user)
+        user.save
 
       	recruitment = Recruitment.new(
       	  user_id: 1,
@@ -16,11 +19,10 @@ RSpec.describe Recruitment, type: :model do
         )
 
         expect(recruitment).to be_valid
-
         recruitment.save
 
         #テストデータの確認
-        answered_enquete = recruitment;
+        answered_enquete = Recruitment.find(1);
 
         expect(answered_enquete.user_id).to eq(1)
         expect(answered_enquete.title).to eq('助っ人募集＠多摩川河川敷')
