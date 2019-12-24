@@ -388,7 +388,7 @@ DEPENDENCIES
   material_icons
   materialize-sass (~> 1.0.0)
   mini_racer
-  mysql2 (>= 0.4.4, < 0.6.0)
+  mysql2
   paranoia
   pry-byebug
   pry-rails
