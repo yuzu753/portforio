@@ -3,6 +3,7 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 // メインビジュアル
+@import url('https://fonts.googleapis.com/css?family=Kosugi');
 .visual-text{
  position: absolute;
  top: 700px;
@@ -32,7 +33,7 @@
 }
 .visual .line {
   display: block;
-  font-family: "Josefin Sans"; /* google fonts を使用しています */
+  font-family: 'Kosugi', sans-serif;
   font-size: 80px;
   font-weight: bold;
 }

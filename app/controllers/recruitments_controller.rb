@@ -14,8 +14,8 @@ class RecruitmentsController < ApplicationController
   end
 
   def show
-    @user = User.find(params[:id])
     @recruitment = Recruitment.find(params[:id])
+    @user = @recruitment.user
   end
 
   def new
@@ -46,9 +46,9 @@ class RecruitmentsController < ApplicationController
 
   def update
     @recruitment = Recruitment.find(params[:id])
-    if @recruitment.update
-      redirect_to recruitment_path(@recruitment.id)
-      flash[:update] = "投稿を更新しました"
+    if @recruitment.update(recruitment_params)
+       redirect_to recruitment_path(@recruitment.id)
+       flash[:update] = "投稿を更新しました"
     else
       render :edit
     end
