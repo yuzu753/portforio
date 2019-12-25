@@ -21,3 +21,35 @@
 
 $('.chips').chips();
 
+$('.visual .line').children().addBack().contents().each(function(){
+  if (this.nodeType == 3) {
+    var $this = $(this);
+    $this.replaceWith($this.text().replace(/(\S)/g, '<span class="letter">$&</span>'));
+  }
+});
+$('.visual .letter').each(function () {
+  var letters = $(this).closest('.txt').find('.letter');
+  var index = $(letters).index(this);
+  var time = index * 0.03; // ずらす間隔
+  $(this).css('animation-delay', time + 's');
+});
+$(function(){
+  /* separate text */
+  $('.visual .line').children().addBack().contents().each(function(){
+    if (this.nodeType == 3) {
+      var $this = $(this);
+      $this.replaceWith($this.text().replace(/(\S)/g, '<span class="letter">$&</span>'));
+    }
+  });
+
+  /* animation delay */
+  $('.visual .letter').each(function () {
+    var letters = $(this).closest('.txt').find('.letter');
+    var index = $(letters).index(this);
+    var time = index * 0.03;
+    $(this).css('animation-delay', time + 's');
+  });
+});
+$(window).on('load', function(){
+  $('.visual').addClass('is-visible');
+});
