@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   get 'tops/top', to: 'tops#top'
   # チャット
   resources :chat
-  post 'chat_room/:user_id', to: 'chat#create', as: 'create_chat_room'
+  post 'chat/:user_id', to: 'chat#create', as: 'create_chat_room'
 
   # 投稿関係
   resources :recruitments
