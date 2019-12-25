@@ -1,24 +1,38 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+# サイト名
+Ball Park
 
-Things you may want to cover:
+# 作った目的、コンセプト
+・野球と人との距離をもっと近づける
+・野球をプレーすることに対する個人とチームの情報の壁を取り払う
 
-* Ruby version
+一人暮らし時に野球をしたいと思った時に草野球の情報を集めることが難しかった、大学時代にチームを作った時も相手を見つけることが難しいと感じていたのでスケットや対戦相手の募集ができるサイトを作りたいと思いました。
 
-* System dependencies
+# 概要
+情報を得る＆情報を活用ために次のような機能を考えました。
 
-* Configuration
+１：募集情報の投稿、検索
+２：ユーザー同士がつながることができる
 
-* Database creation
+#  ユーザビリティ
+草野球を行う年齢層は幅広くサークルからおじさんまで幅広いです。必要な情報を検索しやすいようにエリア、日程、対戦相手や助っ人募集などのカテゴリーで検索ができるようにしました。
 
-* Database initialization
+# 使用技術
+バックエンド
+Ruby 2.5.7
+Rails 5.2.3
+RSpec
+フロントエンド
+materialize
+インフラ
+Docker 3 / EC2(AWS)
+mysql:5.7
+Git
 
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+# 機能一覧
+・会員登録、ログイン機能(gem:devise)
+・ユーザー、掲示板検索機能(gem:ransack)
+・リアルタイムチャット機能(action-cable)
+・ページネーション機能(kaminari)
+・ユーザの論理削除(gem:paranoia)
