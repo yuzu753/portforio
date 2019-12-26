@@ -1,6 +1,9 @@
 <div class="messages">
  <ul class="collection">
-  <li class="collection-item"><%= "#{message.created_at.strftime('%m/%d')} #{message.user.name}: #{ message.message }" %></li>
+  <li class="collection-item avatar">
+  	<%= attachment_image_tag message.user, :profile_image, style: "width: 40px; height: 40px;", fallback: "no_image.png", class: "circle" %>
+    <%= "#{message.created_at.strftime('%m/%d')} #{message.user.name}: #{ message.message }" %>
+  </li>
  </ul>
 </div>
 

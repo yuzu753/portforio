@@ -31,9 +31,11 @@
 		  		  	</th>
 		  		  	<th><%= u.name %></th>
 		  		  	<th>
-			  			<%= link_to user_path(u.id) do %>
-			  			  <i class="material-icons">send</i>
-			  			<% end %>
+                    <%= link_to user_path(u.id) do %>
+		  			  <button class="btn waves-effect waves-light teal darken-3" type="submit" name="action">
+                       <i class="material-icons">send</i>
+                      </button>
+                    <% end %>
 		  		    </th>
 		  		 <% end %>
 		  		</tbody>

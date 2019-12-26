@@ -14,7 +14,7 @@
   <body>
     <nav>
       <div class="nav-wrapper teal darken-4">
-        <div class="brand-logo center"><%= link_to "Ball Park", tops_top_path %></div>
+        <div class="brand-logo center"><%= link_to "Ball Park", tops_top_path, data: {"turbolinks" => false} %></div>
             <% if user_signed_in? %>
             <ul id="nav-mobile" class="left hide-on-med-and-down">
               <li><%= link_to "新規作成", new_recruitment_path %></li>

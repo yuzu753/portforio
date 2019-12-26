@@ -6,6 +6,7 @@ RSpec.describe Recruitment, type: :model do
        it '正しく登録できる' do
 
       	user = FactoryBot.build(:user)
+      	expect(user).to be_valid
         user.save
 
       	recruitment = Recruitment.new(
