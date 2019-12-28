@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+  before_action :authenticate_user!
   def index
     # 一覧表示
     @users = User.page(params[:page]).per(25)
@@ -28,11 +29,11 @@ class UsersController < ApplicationController
   def update
      @user = User.find(params[:id])
      if @user.update(user_params)
-      flash[:notice] = 'successfully updated'
+      flash[:user_update] = 'successfully updated'
       redirect_to user_path(current_user.id)
      else
-      flash[:notice] = 'error'
-      redirect_to root_path
+      flash[:miss_update] = 'error'
+      redirect_to edit_user_path(@user.id)
     end
   end
 

@@ -1,4 +1,5 @@
 class ChatController < ApplicationController
+  before_action :authenticate_user!
   def index
   	@chat = current_user.chat_rooms
   end
