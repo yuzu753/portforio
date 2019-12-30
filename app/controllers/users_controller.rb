@@ -11,34 +11,46 @@ class UsersController < ApplicationController
   def search
     @q = User.search(search_params)
     @users = @q.result(distinct: true)
+    if current_user.id != @user.id
+       redirect_to root_path
+    end
   end
 
   def show
     @user = User.find(params[:id])
+    if current_user.id != @user.id
+       redirect_to root_path
+    end
   end
 
   def edit
     @user = User.find(params[:id])
+    if current_user.id != @user.id
+       redirect_to root_path
+    end
   end
 
   def log
     @user = User.find(params[:id])
     @recruitments = @user.recruitments
+    if current_user.id != @user.id
+       redirect_to root_path
+    end
   end
 
   def update
-     @user = User.find(params[:id])
-     if @user.update(user_params)
+     user = current_user
+     if user.update(user_params)
       flash[:user_update] = 'successfully updated'
       redirect_to user_path(current_user.id)
      else
       flash[:miss_update] = 'error'
-      redirect_to edit_user_path(@user.id)
+      redirect_to edit_user_path(current_user.id)
     end
   end
 
   def destroy
-     @user = User.find(params[:id])
+     @user = current_user
      @user.destroy
      redirect_to root_path
   end
