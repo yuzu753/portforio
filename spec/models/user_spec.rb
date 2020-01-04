@@ -25,4 +25,26 @@ RSpec.describe User, type: :model do
       end
     end
   end
+
+  describe 'バリデーション' do
+    context '必須項目' do
+      it 'ユーザー名' do
+        new_user = User.new
+
+        expect(new_user).not_to be_valid
+        expect(new_user.errors[:name]).to include(I18n.t('errors.messages.blank'))
+      end
+
+      it 'メールアドレスが必須であること' do
+        new_user = User.new
+        expect(new_user).not_to be_valid
+        expect(new_user.errors[:email]).to include(I18n.t('errors.messages.blank'))
+      end
+
+      it '登録できないこと' do
+        new_user = User.new
+        expect(new_user.save).to be_falsey
+      end
+    end
+  end
 end

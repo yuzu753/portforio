@@ -1,4 +1,5 @@
 class RecruitmentsController < ApplicationController
+  before_action :authenticate_user!
   def index
     # 全件表示
     @recruitments = Recruitment.page(params[:page]).per(25)

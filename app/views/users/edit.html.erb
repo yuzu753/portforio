@@ -1,5 +1,10 @@
 <div class= "container">
 	<div class="row">
+    <% if flash[:miss_update] %>
+  　  <div class="flash">
+  　　  <%= flash[:miss_update] %>
+      </div>
+    <% end %>
 		<div class="offset-s2 col s8">
 			<%= form_for(@user, url:user_path) do |f| %>
 			  <div class="form-group">
