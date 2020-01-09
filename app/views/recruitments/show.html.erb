@@ -1,5 +1,10 @@
 <div class="container">
 	<div class="row">
+	  <% if flash[:update] %>
+	  　<div class="flash">
+	  　　<%= flash[:update] %>
+	    </div>
+	    <% end %>
 	  <div class="offset-s2 col s8">
 	  	<div class= "col-s8 right-align">
 	  	   	<% if @recruitment.user == current_user %>
@@ -14,7 +19,7 @@
 		<ul class="collection">
 			<li class="collection-item avatar">
 				<i class="material-icons circle teal darken-3">title</i>
-				<span class="title">Title</span>
+				<span class="title">タイトル</span>
 				<p><%= @recruitment.title %></p>
 			</li>
 			<li class="collection-item avatar">
@@ -36,11 +41,6 @@
 				<i class="material-icons circle teal darken-3">people</i>
 				<span class="title">募集人数</span>
 				<p><%= @recruitment.recruitments_number %>
-			</li>
-			<li class="collection-item avatar">
-				<i class="material-icons circle teal darken-3">dns</i>
-				<span class="title">タグ</span>
-				<p>タグが入ります</p>
 			</li>
 			<li class="collection-item avatar">
 				<i class="material-icons circle teal darken-3">content_paste</i>

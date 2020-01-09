@@ -39,6 +39,24 @@ RSpec.describe UsersController, type: :controller do
 				expect(response).to redirect_to(root_path)
 			end
 		end
+
+		context 'ログイン中他のユーザーのページに行こうとした時' do
+			before do
+			 	@user = FactoryBot.create(:user)
+			 	@new_user = User.new(
+			 		name: '今永',
+			 		email: 'imanaga@gmail.com',
+			 		password: '111111',
+			 	)
+			 	@new_user.save
+			 	sign_in @new_user
+			end
+
+			it 'show 遷移できる' do
+				get :show, params: { id: @user.id }
+				expect(response).to have_http_status(200)
+			end
+		end
 	end
 
 	describe '異常系' do
@@ -93,12 +111,6 @@ RSpec.describe UsersController, type: :controller do
 			 	@new_user.save
 			 	sign_in @new_user
 			 end
-
-			it '#show 遷移できない' do
-				get :show, params: { id: @user.id }
-				expect(response).to have_http_status(302)
-				expect(response).to redirect_to(root_path)
-			end
 
 			it '#edit 遷移できない' do
 				get :edit, params: { id: @user.id }

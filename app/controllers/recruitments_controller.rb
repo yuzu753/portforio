@@ -37,6 +37,10 @@ class RecruitmentsController < ApplicationController
 
   def edit
     @recruitment = Recruitment.find(params[:id])
+    @user = current_user
+    if @recruitment.user_id != @user.id
+       redirect_to recruitments_path
+    end
   end
 
   def destroy
@@ -51,7 +55,8 @@ class RecruitmentsController < ApplicationController
        redirect_to recruitment_path(@recruitment.id)
        flash[:update] = "投稿を更新しました"
     else
-      render :edit
+      flash[:miss_update] = 'error'
+      redirect_to edit_recruitment_path(@recruitment.id)
     end
   end
 

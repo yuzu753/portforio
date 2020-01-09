@@ -22,4 +22,14 @@
              ログイン
           </button>
     <% end %>
+    <br>
+    <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+        <%= f.hidden_field :email, value: 'test@test.com' %>
+        <%= f.hidden_field :password, value: 'testtest' %>
+          <button class="btn waves-effect waves-light teal darken-4" type="submit" name="action">
+            <i class="material-icons right">send</i>
+             <%= f.submit "" %>
+             テストユーザーとしてログインする
+          </button>
+    <% end %>
 </div>
