@@ -1,5 +1,10 @@
 <div class= "container">
 	<div class="row">
+	    <% if flash[:miss_update] %>
+	  　<div class="flash">
+	  　　<%= flash[:miss_update] %>
+	    </div>
+	    <% end %>
 		<div class="card offset-s2 col s8 offset-s2">
 			<%= form_for @recruitment, url: recruitment_path do |f| %>
 			  <div class="input-field">
