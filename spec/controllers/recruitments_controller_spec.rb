@@ -27,11 +27,11 @@ RSpec.describe RecruitmentsController, type: :controller do
 				expect(response).to have_http_status(200)
 			end
 
-			# it '#update 更新できる' do
-			# 	patch :update, params: { recruitment: FactoryBot.attributes_for(:recruitment), id: @recruitment.id }
-			# 	expect(response).to redirect_to(recruitment_path(@recruitment.id))
-			# 	expect(flash[:user_update]).to eq "投稿を更新しました"
-			# end
+			it '#update 更新できる' do
+				patch :update, params: { recruitment: FactoryBot.attributes_for(:recruitment), id: @recruitment.id }
+				expect(response).to redirect_to(recruitment_path(@recruitment.id))
+				expect(flash[:user_update]).to eq "投稿を更新しました"
+			end
 
 			it '#new 遷移出来る' do
 				get :new

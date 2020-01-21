@@ -30,7 +30,7 @@ $('.visual .line').children().addBack().contents().each(function(){
 $('.visual .letter').each(function () {
   var letters = $(this).closest('.txt').find('.letter');
   var index = $(letters).index(this);
-  var time = index * 0.2; // ずらす間隔
+  var time = index * 0.2;
   $(this).css('animation-delay', time + 's');
 });
 $(function(){

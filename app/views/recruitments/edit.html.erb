@@ -1,45 +1,45 @@
 <div class= "container">
-	<div class="row">
-	    <% if flash[:miss_update] %>
-	  　<div class="flash">
-	  　　<%= flash[:miss_update] %>
-	    </div>
-	    <% end %>
-		<div class="card offset-s2 col s8 offset-s2">
-			<%= form_for @recruitment, url: recruitment_path do |f| %>
-			  <div class="input-field">
-			  	 <%= f.label :category, 'カテゴリー' %><br>
-			  	 <%= f.select :category, Recruitment.categories.keys.to_a, {} %>
-			  </div>
-			  <div class="input-field">
-			  	 <%= f.label :event_date, '開催日' %><br>
+    <div class="row">
+        <% if flash[:miss_update] %>
+      　  <div class="flash">
+       　　<%= flash[:miss_update] %>
+          </div>
+        <% end %>
+        <div class="card offset-s2 col s8 offset-s2">
+             <%= form_for @recruitment, url: recruitment_path do |f| %>
+              <div class="input-field">
+                 <%= f.label :category, 'カテゴリー' %><br>
+                 <%= f.select :category, Recruitment.categories.keys.to_a, {} %>
+              </div>
+              <div class="input-field">
+                 <%= f.label :event_date, '開催日' %><br>
 　　　　　　　　　　<%= f.date_select :event_date %>
-			  </div>
-			  <div class="input-field">
-	            <%= f.label :name, 'タイトル' %><br>
-	            <%= f.text_field :title, autofocus: true, class:"form-control", id: "inputTitle" %>
-			  </div>
-			  <div class="input-field">
-			    <%= f.label :body, '本文' %>
-	            <%= f.text_field :body, autofocus: true, class:"form-control", id: "inputBody" %>
-			  </div>
-			  <div class="input-field">
-			  	<%= f.label :recruitment_number, '募集人数' %>
-			  	<%= f.number_field :recruitments_number, min: 0 %>
-			  </div>
-			  <div class="input-field">
-			  	 <%= f.label :area, 'エリア' %><br>
-			  	 <%= f.select :area, Recruitment.areas.keys.to_a, {} %>
-			  </div>
-			  <div class="input-field">
-			  	 <%= f.label :address, '住所' %>
-			  	 <%= f.text_field :address, autofocus: :true, class:"form-control", id: "inputAddress", placeholder:"住所" %>
-			  </div>
+              </div>
+              <div class="input-field">
+                <%= f.label :name, 'タイトル' %><br>
+                <%= f.text_field :title, autofocus: true, class:"form-control", id: "inputTitle" %>
+              </div>
+              <div class="input-field">
+                <%= f.label :body, '本文' %>
+                <%= f.text_field :body, autofocus: true, class:"form-control", id: "inputBody" %>
+                </div>
+              <div class="input-field">
+                <%= f.label :recruitment_number, '募集人数' %>
+                <%= f.number_field :recruitments_number, min: 0 %>
+              </div>
+              <div class="input-field">
+                 <%= f.label :area, 'エリア' %><br>
+                 <%= f.select :area, Recruitment.areas.keys.to_a, {} %>
+              </div>
+              <div class="input-field">
+                 <%= f.label :address, '住所' %>
+                 <%= f.text_field :address, autofocus: :true, class:"form-control", id: "inputAddress", placeholder:"住所" %>
+              </div>
               <button class="btn waves-effect waves-light teal darken-4" type="submit" name="action">
                 <i class="material-icons right">send</i>
                   <%= f.submit "" %>更新する
                 </button>
-			  <% end %>
-		</div>
-	</div>
+              <% end %>
+          </div>
+    </div>
 </div>

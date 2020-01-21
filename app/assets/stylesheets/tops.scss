@@ -109,7 +109,7 @@ color: white;
   animation: slideIn 2s cubic-bezier(0,1.2,.13,1.5) forwards;
 }
 
-/* 文字が左から出てくるアニメーション（お好みの動きでどうぞ） */
+/* 文字が左から出てくるアニメーション */
 @keyframes slideIn {
   0% {
     opacity: 0;
