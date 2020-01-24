@@ -54,7 +54,7 @@ RSpec.describe UsersController, type: :controller do
 
             it 'show 遷移できる' do
                 get :show, params: { id: @user.id }
-                expect(response).to have_http_status
+                expect(response).to have_http_status(200)
             end
         end
     end
